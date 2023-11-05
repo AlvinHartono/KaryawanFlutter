@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:latihan_karyawan/screens/dashboard.dart';
+import 'package:latihan_karyawan/screens/form.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -10,13 +12,15 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
+  final screens = [
+    Dashboard(),
+    PerformanceForm(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Home'),
-      ),
+      body: screens[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
